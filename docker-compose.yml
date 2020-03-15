@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    image: node:latest
+    container_name: node-server
+    volumes: 
+        - .:/home/app
+    working_dir: /home/app
+    ports:
+        - "8080:8080"
