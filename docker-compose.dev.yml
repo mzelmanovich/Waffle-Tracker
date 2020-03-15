@@ -1,10 +1,12 @@
 version: '3'
 services:
   web:
-    image: node:latest
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
     container_name: node-server
     volumes: 
         - .:/home/app
     working_dir: /home/app
     ports:
-        - "8080:8080"
+        - "80:80"

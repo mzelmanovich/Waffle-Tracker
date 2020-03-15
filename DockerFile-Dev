@@ -10,11 +10,11 @@ COPY . .
 
 # run install
 RUN npm install
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 RUN npm install -g typescript
 
 # make port exposed
-EXPOSE 8080
+EXPOSE 80
 
 # run npm
-# CMD [ "npm", "run", "basic" ]
+CMD [ "npm", "run", "start:dev" ]

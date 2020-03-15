@@ -6,7 +6,9 @@ module.exports = {
     entry: path.join(__dirname, 'src', 'client', 'index.ts'),
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: PUBLIC_FILE_PATH
+        contentBase: PUBLIC_FILE_PATH,
+        host: '0.0.0.0',
+        port: 80,
     },
     output: {
         filename: 'bundle.js',
