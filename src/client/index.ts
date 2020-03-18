@@ -45,7 +45,9 @@ async function play() {
         hihat.start(time + (5 * eightNoteTime)) ;
         hihat.start(time + (6 * eightNoteTime)) ;
         hihat.start(time + (7 * eightNoteTime)) ;
-
-
+        kick.start(time);
+        kick.start(time + (2 * eightNoteTime)) ;
+        kick.start(time + (4 * eightNoteTime)) ;
+        kick.start(time + (6 * eightNoteTime)) ;
     }
 }
