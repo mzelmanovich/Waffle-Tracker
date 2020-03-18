@@ -1,9 +1,9 @@
-import { Url } from "./url";
+// import { Url } from "./url";
 
 export class AudioData {
-    private buffer: Promise<ArrayBuffer>;
+    buffer: Promise<ArrayBuffer>;
 
-    constructor(private url: Url) {
+    constructor(private url: string) {
         this.fetchData();
     }
 
