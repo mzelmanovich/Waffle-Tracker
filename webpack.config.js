@@ -8,7 +8,13 @@ module.exports = {
     devServer: {
         contentBase: PUBLIC_FILE_PATH,
         host: '0.0.0.0',
+        publicPath: '/build/public/',
         port: 80,
+        watchOptions: {
+            aggregateTimeout: 500,
+            poll: 1000,
+            ignored: ['src/server/**', 'node_modules/**',]
+        }
     },
     output: {
         filename: 'bundle.js',
