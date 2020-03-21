@@ -1,9 +1,15 @@
+import { Song } from "./song";
+import { WebNote } from "./notes";
+import { Track } from "./track";
+import { Sequence } from "./sequence";
+
 const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
 const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
 const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav'
 
 const context = new AudioContext();
-const playButton = document.getElementById('button');
+const oldPlayButton = document.getElementById('button-old');
+const newPlayButton = document.getElementById('button-new');
 
 async function getBuffer(url: string) {
     const arrayBuffer = (await fetch(url)).arrayBuffer();
@@ -22,7 +28,7 @@ class Instrument {
     }
 }
 
-playButton.onclick =  () =>  play();
+oldPlayButton.onclick =  () =>  play();
 
 async function play() {
     const kick = new Instrument(await getBuffer(KICK_URL));
@@ -50,4 +56,37 @@ async function play() {
         kick.start(time + (4 * eightNoteTime)) ;
         kick.start(time + (6 * eightNoteTime)) ;
     }
+    snare.start(startTime + (8 * eightNoteTime) + (7 * eightNoteTime));
 }
+
+const song = new Song(80);
+const kickNote = new WebNote(KICK_URL, song);
+const hiHatNote = new WebNote(HI_HAT_URL, song);
+const snareNote = new WebNote(SNARE_URL, song);
+const kickTrack = new Track(song);
+const hiHatTrack = new Track(song);
+const seq = new Sequence();
+seq.repeat = 3;
+
+hiHatTrack.addNote(hiHatNote, 0);
+hiHatTrack.addNote(hiHatNote, 2);
+hiHatTrack.addNote(hiHatNote, 4);
+hiHatTrack.addNote(hiHatNote, 6);
+hiHatTrack.addNote(hiHatNote, 8);
+hiHatTrack.addNote(hiHatNote, 10);
+hiHatTrack.addNote(hiHatNote, 12);
+hiHatTrack.addNote(hiHatNote, 14);
+
+kickTrack.addNote(kickNote, 0);
+kickTrack.addNote(kickNote, 4);
+kickTrack.addNote(kickNote, 8);
+kickTrack.addNote(kickNote, 12);
+kickTrack.addNote(snareNote, 14);
+
+
+seq.addTrack(hiHatTrack);
+seq.addTrack(kickTrack);
+
+song.addSequence(seq);
+
+newPlayButton.onclick = () => song.play();
