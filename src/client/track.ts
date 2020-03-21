@@ -28,7 +28,7 @@ export class Track {
         }
     }
     /**
-     * @param  {number} length Preset how many notes the track should contain. Defaults to 16.
+     * @param  {number} length Preset how many notes the track should contain. Defaults to 8.
      */
     reset(length: number = noteResolution) {
         this.notes = [];
