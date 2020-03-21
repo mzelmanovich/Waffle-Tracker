@@ -33,7 +33,7 @@ async function play() {
     var eightNoteTime = quarter / 2;
     const startTime = context.currentTime + 0.100;
 
-
+    // TODO: optimize this
     // Play 2 bars of the following:
     for (var bar = 0; bar < 2; bar++) {
         const time = startTime  + (bar * 8 * eightNoteTime);
