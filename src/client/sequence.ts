@@ -54,8 +54,8 @@ export class Sequence {
     /**
      * Starts all tracks wihtin seq at given timestamp
      * 
-     * @param  {number} timestamp Second timestamp of where to start playing sequence in song.
-     * @returns Timesteamp in seconds of last note start out of all played tracks
+     * @param  {number} timestamp Second timestamp of where to start playing all tracks within sequence.
+     * @returns Timesteamp in seconds of next time to start next note out of all played tracks
      */
     private async playAllTracks(timestamp: number) {
         let maxTSFound = 0;
@@ -63,7 +63,7 @@ export class Sequence {
             const track = this.tracks[i];
             const trackTS = await track.play(timestamp);
 
-            // find when last note within track is played
+            // find when next track that wants the longest next note
             if (trackTS > maxTSFound) {
                 maxTSFound = trackTS;                    
             }
@@ -76,7 +76,7 @@ export class Sequence {
      * Starts all tracks within sequence at the given timestamp within the song and repeats if needed.
      * 
      * @param  {number} timestamp Second timestamp of where to start playing sequence in song.
-     * @returns Timesteamp in seconds of last note start out of all played sequences
+     * @returns Timesteamp in seconds of next time to start next note out of all played sequences
      */
     async play(timestamp: number) {
         let startNextSeq = timestamp;

@@ -42,17 +42,13 @@ export class Song {
     }
 
     /**
-     * Starts all tracks within sequence at the given timestamp within the song and repeats if needed.
-     * 
-     * @param  {number} timestamp Second timestamp of where to start playing sequence in song.
-     * @returns Timesteamp in seconds of last note start out of all played sequences
+     * Starts all tracks within sequence at the given timestamp within the song.
      */
     async play() {
         let nextNoteTS = this.audioContext.currentTime + this.processTime;;
-        for(let i = 0; i < this.length; i++) { // tracskloop
+        for(let i = 0; i < this.length; i++) {
             const seq = this.seqs[i];
-            const seqEndTS = await seq.play(nextNoteTS);
-            nextNoteTS = seqEndTS; 
+            nextNoteTS = await seq.play(nextNoteTS);
         }
     }
 }

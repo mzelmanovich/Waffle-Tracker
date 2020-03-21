@@ -39,19 +39,15 @@ export class Track {
         return beat / 4;
     }
 
-    get nextNoteTimestamp() {
+    private get nextNoteTimestampOffset() {
         return this.calculateNoteTime() * this.length;
-    }
-
-    get lastNoteTimestamp() {
-        return this.calculateNoteTime() * (this.length - 1);
     }
     
     /**
      * Calculates when each note with the track should play and starts them.
      * 
      * @param  {number} timestamp Second timestamp of where to start playing track in song.
-     * @returns Timesteamp in seconds of last note start
+     * @returns Timesteamp in seconds of next note start to start
      */
     async play(timestamp: number) {
         const noteTime =  this.calculateNoteTime();
@@ -61,7 +57,7 @@ export class Track {
                 await note.play(timestamp + (i * noteTime));
             }
         }
-        return timestamp + this.nextNoteTimestamp;
+        return timestamp + this.nextNoteTimestampOffset;
     }
 
 }
