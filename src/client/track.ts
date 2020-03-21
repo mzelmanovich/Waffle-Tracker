@@ -1,12 +1,14 @@
 import { WebNote } from "./notes";
 import { Song } from "./song";
 
+const noteResolution = 8;
+
 export class Track {
 
     private notes: Array<WebNote> = [];
     
-    constructor (private song: Song, length?: number) {
-        this.notes.length =length ?? 16;
+    constructor (private song: Song, length: number = noteResolution) {
+        this.notes.length = length;
     };
 
     /**
@@ -28,15 +30,15 @@ export class Track {
     /**
      * @param  {number} length Preset how many notes the track should contain. Defaults to 16.
      */
-    reset(length: number=16) {
+    reset(length: number = noteResolution) {
         this.notes = [];
         this.notes.length = length;
     }
 
-    // TODO: Do not hardcode track into 16th notes
+    // TODO: Do not hardcode track into 8th notes
     private calculateNoteTime() {
         const beat = 60 / this.song.bpm;
-        return beat / 4;
+        return beat / 2;
     }
 
     private get nextNoteTimestampOffset() {
