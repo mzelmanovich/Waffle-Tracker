@@ -55,8 +55,8 @@ async function play() {
         kick.start(time + (2 * eightNoteTime)) ;
         kick.start(time + (4 * eightNoteTime)) ;
         kick.start(time + (6 * eightNoteTime)) ;
+        snare.start(time+ (7 * eightNoteTime));
     }
-    snare.start(startTime + (8 * eightNoteTime) + (7 * eightNoteTime));
 }
 
 const song = new Song(80);
@@ -66,7 +66,7 @@ const snareNote = new WebNote(SNARE_URL, song);
 const kickTrack = new Track(song);
 const hiHatTrack = new Track(song);
 const seq = new Sequence();
-seq.repeat = 3;
+seq.repeat = 2;
 
 hiHatTrack.addNote(hiHatNote, 0);
 hiHatTrack.addNote(hiHatNote, 2);

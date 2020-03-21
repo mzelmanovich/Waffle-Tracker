@@ -52,7 +52,7 @@ export class Song {
         for(let i = 0; i < this.length; i++) { // tracskloop
             const seq = this.seqs[i];
             const seqEndTS = await seq.play(nextNoteTS);
-            nextNoteTS = seqEndTS + 1; 
+            nextNoteTS = seqEndTS; 
         }
     }
 }

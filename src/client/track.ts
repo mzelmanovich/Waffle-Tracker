@@ -61,7 +61,7 @@ export class Track {
                 await note.play(timestamp + (i * noteTime));
             }
         }
-        return timestamp + this.lastNoteTimestamp;
+        return timestamp + this.nextNoteTimestamp;
     }
 
 }
