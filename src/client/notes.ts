@@ -19,7 +19,7 @@ export class WebNote  {
     /**
      * Plays note in given song.
      * 
-     * @param timestamp Second timestamp of where to play note in song.
+     * @param timestamp  When to play note in seconds within song.
      */
     async play (timestamp: number) {
         const source =  this.song.audioContext.createBufferSource();

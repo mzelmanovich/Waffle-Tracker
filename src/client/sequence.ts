@@ -54,7 +54,7 @@ export class Sequence {
     /**
      * Starts all tracks wihtin seq at given timestamp
      * 
-     * @param  {number} timestamp Second timestamp of where to start playing all tracks within sequence.
+     * @param  {number} timestamp When to start playing all tracks within sequence in seconds.
      * @returns Timesteamp in seconds of next time to start next note out of all played tracks
      */
     private async playAllTracks(timestamp: number) {
@@ -75,7 +75,7 @@ export class Sequence {
     /**
      * Starts all tracks within sequence at the given timestamp within the song and repeats if needed.
      * 
-     * @param  {number} timestamp Second timestamp of where to start playing sequence in song.
+     * @param  {number} timestamp When to start playing sequence in seconds within song.
      * @returns Timesteamp in seconds of next time to start next note out of all played sequences
      */
     async play(timestamp: number) {

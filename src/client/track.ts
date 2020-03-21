@@ -48,7 +48,7 @@ export class Track {
     /**
      * Calculates when each note with the track should play and starts them.
      * 
-     * @param  {number} timestamp Second timestamp of where to start playing track in song.
+     * @param  {number} timestamp When to start playing track in seconds within song.
      * @returns Timesteamp in seconds of next note start to start
      */
     async play(timestamp: number) {
