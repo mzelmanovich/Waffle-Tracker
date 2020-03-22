@@ -59,12 +59,15 @@ async function play() {
     }
 }
 
+
+// New example
 const song = new Song(80);
 const kickNote = new WebNote(KICK_URL, song);
 const hiHatNote = new WebNote(HI_HAT_URL, song);
 const snareNote = new WebNote(SNARE_URL, song);
 const kickTrack = new Track(song);
 const hiHatTrack = new Track(song);
+const snareTrack = new Track(song);
 const seq = new Sequence();
 seq.repeat = 2;
 
@@ -81,11 +84,12 @@ kickTrack.addNote(kickNote, 0);
 kickTrack.addNote(kickNote, 2);
 kickTrack.addNote(kickNote, 4);
 kickTrack.addNote(kickNote, 6);
-kickTrack.addNote(snareNote, 7);
+snareTrack.addNote(snareNote, 7);
 
 
 seq.addTrack(hiHatTrack);
 seq.addTrack(kickTrack);
+seq.addTrack(snareTrack);
 
 song.addSequence(seq);
 
