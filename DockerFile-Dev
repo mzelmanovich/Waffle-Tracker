@@ -3,11 +3,11 @@ FROM node:latest
 
 # switch docker dir to working dir
 RUN mkdir -p /usr/app/waffletracker
-WORKDIR /usr/app/waffletracker
+WORKDIR /usr/app/waffletracker/
 
 # copy files
-COPY package*.json /usr/app/waffletracker
-COPY . /usr/app/waffletracker
+COPY package*.json /usr/app/waffletracker/
+COPY . /usr/app/waffletracker/
 
 # run install
 RUN npm install -g typescript
