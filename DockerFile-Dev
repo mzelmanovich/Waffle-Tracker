@@ -10,7 +10,7 @@ COPY . .
 
 # run install
 RUN npm install -g typescript
-RUN npm install -g webpack-dev-server
+RUN npm install -g webpack-dev-server webpack
 RUN npm install
 
 # make port exposed
