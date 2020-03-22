@@ -72,19 +72,19 @@ const seq = new Sequence();
 seq.repeat = 2;
 
 hiHatTrack.addNote(hiHatNote, 0);
-hiHatTrack.addNote(hiHatNote, 1);
 hiHatTrack.addNote(hiHatNote, 2);
-hiHatTrack.addNote(hiHatNote, 3);
 hiHatTrack.addNote(hiHatNote, 4);
-hiHatTrack.addNote(hiHatNote, 5);
 hiHatTrack.addNote(hiHatNote, 6);
-hiHatTrack.addNote(hiHatNote, 7);
+hiHatTrack.addNote(hiHatNote, 8);
+hiHatTrack.addNote(hiHatNote, 10);
+hiHatTrack.addNote(hiHatNote, 12);
+hiHatTrack.addNote(hiHatNote, 14);
 
 kickTrack.addNote(kickNote, 0);
-kickTrack.addNote(kickNote, 2);
 kickTrack.addNote(kickNote, 4);
-kickTrack.addNote(kickNote, 6);
-snareTrack.addNote(snareNote, 7);
+kickTrack.addNote(kickNote, 8);
+kickTrack.addNote(kickNote, 12);
+snareTrack.addNote(snareNote, 14);
 
 
 seq.addTrack(hiHatTrack);
