@@ -9,7 +9,6 @@ COPY package*.json ./
 COPY . .
 
 # run install
-# RUN npm install -g nodemon
 RUN npm install -g typescript
 RUN npm install
 
