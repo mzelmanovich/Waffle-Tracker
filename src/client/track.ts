@@ -37,8 +37,8 @@ export class Track {
 
     // TODO: Do not hardcode track into 8th notes
     private calculateNoteTime() {
-        const beat = 60 / this.song.bpm;
-        return beat / 2;
+        const secondsPerNote = 60 / this.song.bpm;
+        return secondsPerNote / 2;
     }
 
     private get nextNoteTimestampOffset() {
