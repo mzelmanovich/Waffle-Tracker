@@ -2,11 +2,12 @@
 FROM node:latest
 
 # switch docker dir to working dir
+RUN mkdir -p /usr/app
 WORKDIR /usr/app
 
 # copy files
-COPY package*.json ./
-COPY . .
+COPY package*.json /usr/app/
+COPY . /usr/app/
 
 # run install
 RUN npm install -g typescript
