@@ -6,7 +6,7 @@ services:
       dockerfile: ./DockerFile-Dev
     container_name: node-server
     volumes: 
-        - .: /usr/app/waffletracker/:rw
+        - .:/usr/app/waffletracker/:rw
     working_dir:  /usr/app/waffletracker
     ports:
         - "80:80"
