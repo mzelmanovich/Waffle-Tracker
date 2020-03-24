@@ -1,7 +1,7 @@
 import { Song } from "./song";
 import { WebNote } from "./notes";
 import { Track } from "./track";
-import { Sequence } from "./sequence";
+import { Pattern } from "./pattern";
 
 const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
 const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
@@ -68,8 +68,8 @@ const snareNote = new WebNote(SNARE_URL, song);
 const kickTrack = new Track(song);
 const hiHatTrack = new Track(song);
 const snareTrack = new Track(song);
-const seq = new Sequence();
-seq.reps = 2;
+const pat = new Pattern();
+pat.reps = 2;
 
 hiHatTrack.addNote(hiHatNote, 0);
 hiHatTrack.addNote(hiHatNote, 2);
@@ -87,10 +87,10 @@ kickTrack.addNote(kickNote, 12);
 snareTrack.addNote(snareNote, 14);
 
 
-seq.addTrack(hiHatTrack);
-seq.addTrack(kickTrack);
-seq.addTrack(snareTrack);
+pat.addTrack(hiHatTrack);
+pat.addTrack(kickTrack);
+pat.addTrack(snareTrack);
 
-song.addSequence(seq);
+song.addPattern(pat);
 
 newPlayButton.onclick = () => song.play();

@@ -1,54 +1,54 @@
-import { Sequence } from "./sequence";
+import { Pattern } from "./pattern";
 
 /**
  * Holds AudioContext. Use to play sounds through the browser
  */
 export class Song {
     readonly audioContext = new AudioContext();
-    private seqs: Array<Sequence> = [];
+    private patterns: Array<Pattern> = [];
     private readonly processTime = 0.200;
     
     constructor(public bpm: number = 60) {}
 
     /**
-     * Adds a sequence to song at the given index.
+     * Adds a pattern to song at the given index.
      */
-    addSequence(seq: Sequence, index?: number) {
+    addPattern(pat: Pattern, index?: number) {
         if (Number.isInteger(index)) {
            
             // check index is within bounds
             if(index < 0 || index > this.length) {
-                throw new Error(`Index given for sequence, ${index}, is out of bounds. Track currently has ${this.length} sequences.`);
+                throw new Error(`Index given for pattern, ${index}, is out of bounds. Track currently has ${this.length} patterns.`);
             }
 
-            this.seqs[index] = seq;
+            this.patterns[index] = pat;
         } else {
-            this.seqs.push(seq);
+            this.patterns.push(pat);
         }
     }
 
     /**
-     * How many sequences are within the sequnce. 
+     * How many patterns are within the song. 
      */
     get length() {
-        return this.seqs.length;
+        return this.patterns.length;
     }
 
     /**
-     * How many sequences are within the sequnce. 
+     * How many patterns are within the song. 
      */
     set length(num: number) {
-        this.seqs.length;
+        this.patterns.length;
     }
 
     /**
-     * Starts all tracks within sequence at the given timestamp within the song.
+     * Starts all tracks within pattern at the given timestamp within the song.
      */
     async play() {
         let nextNoteTS = this.audioContext.currentTime + this.processTime;;
         for(let i = 0; i < this.length; i++) {
-            const seq = this.seqs[i];
-            nextNoteTS = await seq.play(nextNoteTS);
+            const pat = this.patterns[i];
+            nextNoteTS = await pat.play(nextNoteTS);
         }
     }
 }
