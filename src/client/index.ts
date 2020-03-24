@@ -69,7 +69,7 @@ const kickTrack = new Track(song);
 const hiHatTrack = new Track(song);
 const snareTrack = new Track(song);
 const seq = new Sequence();
-seq.repeat = 2;
+seq.reps = 2;
 
 hiHatTrack.addNote(hiHatNote, 0);
 hiHatTrack.addNote(hiHatNote, 2);
