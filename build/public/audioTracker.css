@@ -1,0 +1,69 @@
+body{
+      font-family: inconsolata, monospace;
+      font-size: 14px;
+      color: #333333;
+      padding: 100px;
+}
+
+button{
+      padding: 10px;
+      border-radius: 2px;
+      border-style: none;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+      align-items: center;
+      font-size: 14px;
+}
+
+button:hover{
+      cursor: pointer;
+      background-color: #e6e3e3;
+}
+
+
+.buttonContainer{
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: row;
+}
+
+.trackHeader{
+      padding: 10px;
+      font-weight: bold;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333333;
+}
+
+.trackColumn{
+      display: flex;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      padding-bottom: 4px;
+      width: 100px;
+}
+
+.trackRow{
+      display: flex;
+}
+
+.currentRow{
+      background-color: #9ec3ff;
+}
+
+.rowIndex{
+      padding-right: 4px;
+      padding-left: 4px;
+      border-right: 1px solid #333333;
+      color: gray;
+}
+
+.rowNote{
+      padding-left: 4px;
+      color: blue;s
+}
+
+.highlightNote{
+      background-color: #ffffff;
+}
