@@ -3,20 +3,20 @@ import { start } from "repl";
 
 export class Sequence {
     private tracks: Array<Track> = [];
-    private _repeat = 1;
+    private _reps = 1;
 
     /** How many times should the sequence repeat. */
-    get repeat(){
-        return this._repeat;
+    get reps(){
+        return this._reps;
     }
     /**
      * How many times should the sequence repeat.
      */
-    set repeat(num: number) {
+    set reps(num: number) {
         if (num < 1) {
             throw new Error(`Sequnces must repeate at least once. ${num} is not allowed.`);
         }
-        this._repeat = num;
+        this._reps = num;
     }
 
 
@@ -80,7 +80,7 @@ export class Sequence {
      */
     async play(timestamp: number) {
         let startNextSeq = timestamp;
-        for(let i= 1; i<= this.repeat; i++) {
+        for(let i= 1; i<= this.reps; i++) {
             startNextSeq = await this.playAllTracks(startNextSeq);
         }
 
