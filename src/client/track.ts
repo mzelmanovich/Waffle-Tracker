@@ -1,7 +1,7 @@
 import { WebNote } from "./notes";
 import { Song } from "./song";
 
-const noteResolution = 8;
+const noteResolution = 16;
 
 export class Track {
 
@@ -35,10 +35,10 @@ export class Track {
         this.notes.length = length;
     }
 
-    // TODO: Do not hardcode track into 8th notes
+    // TODO: Do not hardcode track into 16th notes
     private calculateNoteTime() {
         const secondsPerNote = 60 / this.song.bpm;
-        return secondsPerNote / 2;
+        return secondsPerNote / 4;
     }
 
     private get nextNoteTimestampOffset() {
