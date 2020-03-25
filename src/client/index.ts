@@ -31,7 +31,7 @@ const saveButton = document.getElementById('save');
 function evalTracks() {
     let trackList = document.getElementsByClassName('trackColumn');
     //track 1
-    let columnList1 = trackList[1].getElementsByClassName('rowNote');
+    let columnList1 = trackList[0].getElementsByClassName('rowNote');
     for (var i = 0; i < columnList1.length; i++) {  
         let el = trackList[0].getElementsByClassName(i.toString())[0];
         let inputValue = (<HTMLInputElement>el).value;
