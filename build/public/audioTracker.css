@@ -61,9 +61,17 @@ button:hover{
 
 .rowNote{
       padding-left: 4px;
-      color: blue;s
+      color: blue;
 }
 
 .highlightNote{
       background-color: #ffffff;
+}
+
+.noteInput { 
+      width: 15px;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 2px solid black;
 }

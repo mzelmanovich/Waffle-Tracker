@@ -8,33 +8,41 @@ const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
 const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
 // new prototype example 1.0 
-const song = new Song(80);
+const song = new Song(120);
 const pattern = new Pattern();
 pattern.reps = 2;
 const track01 = new Track(song);
 song.addPattern(pattern);
 pattern.addTrack(track01);
 
-const kick = new WebNote(KICK_URL, song);
-const hiHat = new WebNote(HI_HAT_URL, song);
-const snare = new WebNote(SNARE_URL, song);
+const k = new WebNote(KICK_URL, song);
+const h = new WebNote(HI_HAT_URL, song);
+const s = new WebNote(SNARE_URL, song);
 
 const playButton = document.getElementById('play');
 const stopButton = document.getElementById('stop');
-const trackColumn1 = document.getElementsByClassName('trackColumn')[0];
-const columnList = trackColumn1.getElementsByClassName('rowNote');
+const saveButton = document.getElementById('save');
+let trackColumn1 = document.getElementsByClassName('trackColumn')[0];
+let columnList = trackColumn1.getElementsByClassName('rowNote');
 
-//assigning variables for each track row 
-const trackRows = [];
-for (var i = 0; i < columnList.length; i++) {  
-    trackRows.push(columnList[i]);
-    //adding event listeners to each cell
-    let element: HTMLElement = trackRows[i] as HTMLElement;
-    element.onclick = () => element.style.color = "black";
-    element.onclick = () => track01.addNote(hiHat, i);
+function evalTrack() {
+    for (var i = 0; i < columnList.length; i++) {  
+        let inputValue = (<HTMLInputElement>document.getElementById(i.toString())).value;
+        console.log(inputValue);
+        if(inputValue == "k"){
+            track01.addNote(k, i);
+        }
+        if(inputValue == "h"){
+            track01.addNote(h, i);
+        }
+        if(inputValue == "s"){
+            track01.addNote(s, i);
+        }
+    }
 }
-
+saveButton.onclick = () => evalTrack()
 playButton.onclick = () => song.play();
+//stopButton.onclick = () => song.stop();
 
 /*
 // example 0.2
