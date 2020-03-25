@@ -1,5 +1,4 @@
 import { Track } from "./track";
-import { start } from "repl";
 
 export class Pattern {
     private tracks: Array<Track> = [];
