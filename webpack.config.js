@@ -13,7 +13,7 @@ module.exports = {
         watchOptions: {
             aggregateTimeout: 500,
             poll: 1000,
-            ignored: ['src/server/**', 'node_modules/**',]
+            ignored: ['src/server/**', 'node_modules/**', 'src/**/*test.ts']
         }
     },
     output: {

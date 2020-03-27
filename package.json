@@ -4,10 +4,10 @@
   "description": "Music App",
   "main": "./build/index.js",
   "scripts": {
-    "docker:build": "docker-compose -f docker-compose.yml build",
-    "docker:dev": "docker-compose -f docker-compose.yml up -d web-dev-server",
-    "docker:unit-tests": "docker-compose -f docker-compose.yml up -d unit-tests",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:build": "docker-compose --verbose -f docker-compose.yml build ",
+    "docker:dev": "docker-compose -f docker-compose.yml up web-dev-server",
+    "docker:unit-tests": "docker-compose -f docker-compose.yml up unit-tests",
+    "test": "ts-node ./node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "start:dev": "./node_modules/.bin/webpack-dev-server",
     "webpack": "./node_modules/webpack/bin/webpack.js"
   },
@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/mzelmanovich/Waffle-Tracker#readme",
   "devDependencies": {
+    "@types/jasmine": "^3.5.10",
     "@types/node": "^13.9.1",
+    "jasmine": "^3.5.0",
+    "nyc": "^15.0.0",
     "ts-loader": "^6.2.1",
     "tslint": "^6.1.0",
     "typescript": "^3.8.3",
