@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web-dev-server:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: web-dev
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - node_modules_dev:/usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    ports:
+        - "80:80"
+  unit-tests:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: unit-test
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - node_modules_dev:/usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    ports:
+        - "81:80"
+    command: [ "npm", "test"]
+volumes:
+  node_modules_dev:
