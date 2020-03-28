@@ -32,24 +32,14 @@ const inputs = document.getElementsByTagName("input");
 for (let i = 0; i < inputs.length; i++) { 
     let n: any = inputs[i];
     let cell = n.classList[1]
-    addEventListener("input", function() {
+    n.addEventListener("input", function() {
         let note: any = inputs[i].value;
         if (note) {
             let trackNumber: any = inputs[i];
             while(trackNumber.className != 'trackColumn'){
                 trackNumber = trackNumber.parentElement;
             }
-            //need to somehow directly add note var in to addNote method
-            // track0.addNote(note, cell) doesn't work
-            if(note = k) {
-                track0.addNote(k, cell);
-            }
-            if(note = s) {
-                track0.addNote(s, cell);
-            }
-            if(note = h) {
-                track0.addNote(h, cell);
-            }
+            track0.addNote(note, cell);
         }
       });
 }
