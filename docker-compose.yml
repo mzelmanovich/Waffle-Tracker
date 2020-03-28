@@ -7,7 +7,6 @@ services:
     container_name: web-dev
     volumes: 
         - .:/usr/app/waffletracker/:rw
-        # - node_modules_dev:/usr/app/waffletracker/node_modules
         - /usr/app/waffletracker/node_modules
     working_dir:  /usr/app/waffletracker
     ports:
@@ -19,9 +18,8 @@ services:
     container_name: unit-test
     volumes: 
         - .:/usr/app/waffletracker/:rw
-        # - node_modules_dev:/usr/app/waffletracker/node_modules
         - /usr/app/waffletracker/node_modules
     working_dir:  /usr/app/waffletracker
     ports:
         - "81:80"
-    command: [ "npm", "test"]
+    command: [ "npm", "run", "test"]
