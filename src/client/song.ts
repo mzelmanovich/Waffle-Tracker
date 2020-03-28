@@ -1,6 +1,8 @@
 import { Pattern } from "./pattern";
 
-
+/**
+ * Interface to allow AudioContext like object in node
+ */
 export interface AudioContextI {
     currentTime: number;
     createBufferSource: ()=> AudioBufferSourceNodeI;
@@ -8,16 +10,25 @@ export interface AudioContextI {
     decodeAudioData: (buffer: ArrayBuffer) => Promise<AudioBuffer>;
 }
 
+/**
+ * Interface to allow AudioBufferSorce like object in node
+ */
 export interface AudioBufferSourceNodeI {
     buffer?: AudioBuffer;
     connect: (dest: AudioDestinationNodeI) => AudioNodeI;
     start: (timestamp?: number) => void
 }
 
+/**
+ * Interface to allow AudioDestinationNode like object in node
+ */
 export interface AudioDestinationNodeI {
 
 }
 
+/**
+ * Interface to allow AudioNode like object in node
+ */
 export interface AudioNodeI {
 
 }
