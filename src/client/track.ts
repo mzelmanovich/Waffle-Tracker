@@ -1,5 +1,6 @@
 import { WebNote } from "./notes";
 import { Song } from "./song";
+import { throws } from "assert";
 
 const noteResolution = 16;
 
@@ -17,6 +18,10 @@ export class Track {
     get length() {
         return this.notes.length;
     }
+
+    set length(length: number) {
+        this.notes.length = length; 
+    }
     /**
      * Adds a note to the song at a given index.
      */
@@ -27,8 +32,16 @@ export class Track {
             this.notes.push(note);
         }
     }
+
+    getNote(index: number) {
+        if (index < 0 || index >= this.length) {
+            throw new Error(`Index given for note, ${index}, is out of bound. Track currently has ${this.length} notes`)
+        }
+        return this.notes[index] || null;
+    }
+
     /**
-     * @param  {number} length Preset how many notes the track should contain. Defaults to 8.
+     * @param  {number} length Preset how many notes the track should contain. Defaults to 16.
      */
     reset(length: number = noteResolution) {
         this.notes = [];
