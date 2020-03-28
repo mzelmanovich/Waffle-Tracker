@@ -26,105 +26,36 @@ pattern.addTrack(track3);
 
 const playButton = document.getElementById('play');
 const stopButton = document.getElementById('stop');
-const saveButton = document.getElementById('save');
 
-function evalTracks() {
-    let trackList = document.getElementsByClassName('trackColumn');
-    //track 1
-    let columnList1 = trackList[0].getElementsByClassName('rowNote');
-    for (var i = 0; i < columnList1.length; i++) {  
-        let el = trackList[0].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        console.log(inputValue);
-        if(inputValue == "k"){
-            track0.addNote(k, i);
-        }
-        if(inputValue == "h"){
-            track0.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track0.addNote(s, i);
-        }   
-    }   
-    //track 2
-    let columnList2 = (trackList[1].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList2.length; i++) {  
-        let el = trackList[1].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        //console.log(inputValue);
-        if(inputValue == "k"){
-            track1.addNote(k, i);
-        }
-        if(inputValue == "h"){
-            track1.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track1.addNote(s, i);
-        }   
-    }   
-    //track 3
-    let columnList3 = (trackList[2].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList3.length; i++) {  
-        let el = trackList[2].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-            //console.log(inputValue);
-            if(inputValue == "k"){
-                track2.addNote(k, i);
+const inputs = document.getElementsByTagName("input");
+
+for (let i = 0; i < inputs.length; i++) { 
+    let n: any = inputs[i];
+    let cell = n.classList[1]
+    addEventListener("input", function() {
+        let note: any = inputs[i].value;
+        if (note) {
+            let trackNumber: any = inputs[i];
+            while(trackNumber.className != 'trackColumn'){
+                trackNumber = trackNumber.parentElement;
             }
-            if(inputValue == "h"){
-                track2.addNote(h, i);
+            //need to somehow directly add note var in to addNote method
+            // track0.addNote(note, cell) doesn't work
+            if(note = k) {
+                track0.addNote(k, cell);
             }
-            if(inputValue == "s"){
-                track2.addNote(s, i);
+            if(note = s) {
+                track0.addNote(s, cell);
             }
-    }   
-    //track 4
-    let columnList4 = (trackList[3].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList4.length; i++) {  
-        let el = trackList[3].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        //console.log(inputValue);
-        if(inputValue == "k"){
-            track3.addNote(k, i);
+            if(note = h) {
+                track0.addNote(h, cell);
+            }
         }
-        if(inputValue == "h"){
-            track3.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track3.addNote(s, i);
-        }
-    }    
+      });
 }
 
-/*
-//trying to make the above code more DRY
-function evalTracks() {
-    let trackList = document.getElementsByClassName('trackColumn');
-    let trackArray: any[] = [];
-    let trackColumn = [];
-    for (var n = 0; n < trackList.length; n++){
-        trackArray.push("track" + n.toString());
-        trackColumn.push(trackList[n].getElementsByClassName('rowNote'));
-        for (var i = 0; i < trackColumn.length; i++) {  
-            let inputValue = (<HTMLInputElement>document.getElementById(i.toString())).value;
-            //console.log(inputValue);
-            if(inputValue == "k"){
-                trackArray[n].addNote(k, i);
-            }
-            if(inputValue == "h"){
-                trackArray[n].addNote(h, i);
-            }
-            if(inputValue == "s"){
-                trackArray[n].addNote(s, i);
-            }
-        }
-    }   
-}
-*/
+playButton.onclick = () => song.play(); 
 
-saveButton.onclick = () => evalTracks();
-playButton.onclick = () => song.play();
-//stopButton.onclick = () => song.stop();
 
 /*
 // example 0.2
