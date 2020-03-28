@@ -13,7 +13,7 @@ export class Pattern {
      */
     set reps(num: number) {
         if (num < 1) {
-            throw new Error(`Patterns must repeate at least once. ${num} is not allowed.`);
+            throw new Error(`Patterns must repeate at least 1. ${num} is not allowed.`);
         }
         this._reps = num;
     }
@@ -48,6 +48,14 @@ export class Pattern {
      */
     set length(num: number) {
         this.tracks.length = num;
+    }
+
+    getTrack(index: number) {
+        // check index is within bounds
+        if(index < 0 || index >=this.length) {
+            throw new Error(`Index given for track, ${index}, is out of bounds. Pattern currently has ${this.length} tracks.`);
+        }
+        return this.tracks[index];
     }
 
     /**
