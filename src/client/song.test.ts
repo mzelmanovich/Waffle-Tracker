@@ -1,4 +1,4 @@
-import {Song, AudioContextI, AudioNodeI, AudioDestinationNodeI} from './song'
+import {Song} from './song'
 import { Pattern } from './pattern';
 
 const TSConsoleReporter = require('jasmine-console-reporter');
@@ -6,20 +6,7 @@ const TSConsoleReporter = require('jasmine-console-reporter');
 jasmine.getEnv().clearReporters(); // Clear default console reporter
 jasmine.getEnv().addReporter(new TSConsoleReporter());
 
-class MockAudioContext implements AudioContextI {
-    currentTime = 0;
-    destination = {};
-    decodeAudioData() {
-        return Promise.resolve(jasmine.createSpyObj("AudioBuffer", []));
-    }
-
-    createBufferSource() {
-        return {
-            connect: (dest:AudioDestinationNodeI) => ({} as AudioNodeI),
-            start: (ts?: number) => {}
-        }
-    }
-}
+const createMockAudioContext = (currentTime = 0) => jasmine.createSpyObj('AudioContext', {}, {currentTime});
 
 const createMockPattern = (playReturn = 1) =>(jasmine.createSpyObj('Pattern', {
     play: Promise.resolve(playReturn)
@@ -27,10 +14,10 @@ const createMockPattern = (playReturn = 1) =>(jasmine.createSpyObj('Pattern', {
 
 describe('Song', function() {
     let song: Song;
-    let ctx: MockAudioContext;
+    let ctx: AudioContext;
     
     beforeEach(() => {
-        ctx = new MockAudioContext();
+        ctx = createMockAudioContext();
         song = new Song(60, ctx);
     });
 

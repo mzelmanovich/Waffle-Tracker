@@ -1,46 +1,13 @@
 import { Pattern } from "./pattern";
 
 /**
- * Interface to allow AudioContext like object in node
- */
-export interface AudioContextI {
-    currentTime: number;
-    createBufferSource: ()=> AudioBufferSourceNodeI;
-    destination: AudioDestinationNodeI;
-    decodeAudioData: (buffer: ArrayBuffer) => Promise<AudioBuffer>;
-}
-
-/**
- * Interface to allow AudioBufferSorce like object in node
- */
-export interface AudioBufferSourceNodeI {
-    buffer?: AudioBuffer;
-    connect: (dest: AudioDestinationNodeI) => AudioNodeI;
-    start: (timestamp?: number) => void
-}
-
-/**
- * Interface to allow AudioDestinationNode like object in node
- */
-export interface AudioDestinationNodeI {
-
-}
-
-/**
- * Interface to allow AudioNode like object in node
- */
-export interface AudioNodeI {
-
-}
-
-/**
  * Holds AudioContext. Use to play sounds through the browser
  */
 export class Song {
     private patterns: Array<Pattern> = [];
     private readonly processTime = 0.200;
     
-    constructor(public bpm: number = 60, readonly audioContext: AudioContextI= (new AudioContext())) {}
+    constructor(public bpm: number = 60, readonly audioContext: AudioContext = (new AudioContext())) {}
 
     /**
      * Adds a pattern to song at the given index.
