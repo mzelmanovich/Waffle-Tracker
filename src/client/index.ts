@@ -11,18 +11,18 @@ const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 const song = new Song(120);
 const pattern = new Pattern();
 pattern.reps = 2;
-const track0 = new Track(song);
 const track1 = new Track(song);
 const track2 = new Track(song);
 const track3 = new Track(song);
+const track4 = new Track(song);
 const k = new WebNote(KICK_URL, song);
 const h = new WebNote(HI_HAT_URL, song);
 const s = new WebNote(SNARE_URL, song);
 song.addPattern(pattern);
-pattern.addTrack(track0);
 pattern.addTrack(track1);
 pattern.addTrack(track2);
 pattern.addTrack(track3);
+pattern.addTrack(track4);
 
 const playButton = document.getElementById('play');
 const stopButton = document.getElementById('stop');
@@ -41,7 +41,11 @@ for (let i = 0; i < inputs.length; i++) {
             }
             trackNumber = trackNumber.id;
             console.log(trackNumber, note, cell);
-            track0.addNote(k, cell);
+
+            // passing note here fails and I want to find a way to use the variable trackNumber as a way to decide which track.addNote to use which probably means I'm doing something wrong
+            if (trackNumber = "track1") {
+                track1.addNote(note, cell);
+            }
         }
       });
 }
