@@ -37,7 +37,7 @@ describe('WebNote', function () {
     let note: WebNote;
 
     beforeEach(async () => {
-        audioBufferSource = jasmine.createSpyObj('AudioBufferSource', ['connect', 'start'], ['buffer']);
+        audioBufferSource = jasmine.createSpyObj('AudioBufferSource', ['connect', 'start', 'stop'], ['buffer']);
         note = new WebNote(URL, createMockSong());
         // wait for fetchData to finish
         await note.audioBuffer;
@@ -64,6 +64,15 @@ describe('WebNote', function () {
             expect(audioBufferSource.connect).toHaveBeenCalledWith(destination);
             expect(audioBufferSource.start).toHaveBeenCalledTimes(1);
             expect(audioBufferSource.start).toHaveBeenCalledWith(100);
+        });
+    });
+
+    describe('#stop', () => {
+        it('calls stop on the audio buffer', async () => {
+            await note.play(100);
+            note.stop(205);
+            expect(audioBufferSource.stop).toHaveBeenCalledTimes(1);
+            expect(audioBufferSource.stop).toHaveBeenCalledWith(205);
         });
     });
 });

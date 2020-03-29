@@ -9,7 +9,7 @@ jasmine.getEnv().addReporter(new TSConsoleReporter());
 
 let bpm = 60;
 const createMockSong = () => jasmine.createSpyObj('Song', {}, { bpm }) as Song;
-const createMockNote = () => jasmine.createSpyObj('WebNote', ['play']) as WebNote;
+const createMockNote = () => jasmine.createSpyObj('WebNote', ['play', 'stop']) as WebNote;
 
 describe('Track', function () {
     let trk: Track;
@@ -74,7 +74,7 @@ describe('Track', function () {
     });
 
     describe('#play', () => {
-        it('calls notes with expected time', async () => {
+        it('calls play and stop on with expected time', async () => {
             const note0 = createMockNote();
             const note1 = createMockNote();
             const note8 = createMockNote();
@@ -85,11 +85,16 @@ describe('Track', function () {
             await trk.play(0);
 
             expect(note0.play).toHaveBeenCalledWith(0);
-            expect(note1.play).toHaveBeenCalledWith(0.25);
-            expect(note8.play).toHaveBeenCalledWith(2);
-
             expect(note0.play).toHaveBeenCalledTimes(1);
+            expect(note0.stop).toHaveBeenCalledWith(0.25);
+            expect(note0.stop).toHaveBeenCalledTimes(1);
+
+            expect(note1.play).toHaveBeenCalledWith(0.25);
             expect(note1.play).toHaveBeenCalledTimes(1);
+            expect(note1.stop).toHaveBeenCalledWith(2);
+            expect(note1.stop).toHaveBeenCalledTimes(1);
+
+            expect(note8.play).toHaveBeenCalledWith(2);
             expect(note8.play).toHaveBeenCalledTimes(1);
         });
 
