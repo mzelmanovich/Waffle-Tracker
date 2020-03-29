@@ -88,6 +88,10 @@ describe('Track', function() {
             expect(note0.play).toHaveBeenCalledWith(0);
             expect(note1.play).toHaveBeenCalledWith(.25);
             expect(note8.play).toHaveBeenCalledWith(2);
+
+            expect(note0.play).toHaveBeenCalledTimes(1);
+            expect(note1.play).toHaveBeenCalledTimes(1);
+            expect(note8.play).toHaveBeenCalledTimes(1);
         });
 
         it('returns expected next timestamp', async () => {

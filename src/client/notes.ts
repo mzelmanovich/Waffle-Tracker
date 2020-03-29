@@ -4,10 +4,20 @@ import {Song} from './song';
  * Represent a note created from a audio file url.
  */
 export class WebNote  {
-    private audioBuffer: Promise<AudioBuffer>;
+     private audioBuffer_: Promise<AudioBuffer>;
 
     constructor(private url: string, private song: Song) {
         this.fetchData();
+    }
+
+    set audioBuffer(obj: Promise<AudioBuffer>) {
+        if (!this.audioBuffer_) {
+            this.audioBuffer_ = obj;
+        }
+    }
+
+    get audioBuffer() {
+        return this.audioBuffer_;
     }
 
     private async fetchData() {

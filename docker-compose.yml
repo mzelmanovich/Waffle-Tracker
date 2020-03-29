@@ -27,7 +27,7 @@ services:
     build:
       context: ./
       dockerfile: ./DockerFile-Dev
-    container_name: unit-test
+    container_name: unit-test-debug
     volumes: 
         - .:/usr/app/waffletracker/:rw
         - /usr/app/waffletracker/node_modules

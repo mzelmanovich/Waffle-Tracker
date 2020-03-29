@@ -83,9 +83,14 @@ describe('Pattern', function() {
             const ts= 1000;
             await pat.play(ts);
 
+            expect(track1.play).toHaveBeenCalledTimes(1);
             expect(track1.play).toHaveBeenCalledWith(ts);
+
             expect(track2.play).toHaveBeenCalledWith(ts);
+            expect(track2.play).toHaveBeenCalledTimes(1);
+
             expect(track3.play).toHaveBeenCalledWith(ts);
+            expect(track3.play).toHaveBeenCalledTimes(1);
         });
 
         it('starts all tracks and then starts rep based off of longest track', async () =>{
@@ -106,6 +111,9 @@ describe('Pattern', function() {
             expect(track1.play).toHaveBeenCalledWith(3);
             expect(track2.play).toHaveBeenCalledWith(3);
             expect(track3.play).toHaveBeenCalledWith(3);
+            expect(track1.play).toHaveBeenCalledTimes(2);
+            expect(track2.play).toHaveBeenCalledTimes(2);
+            expect(track3.play).toHaveBeenCalledTimes(2);
         });
 
         it('returns longest track ts', async () => {
