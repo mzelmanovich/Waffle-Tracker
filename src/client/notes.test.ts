@@ -47,9 +47,11 @@ describe('WebNote', function() {
         createBufferSource.calls.reset();
     });
 
-    it('gets audio data and creates audio buffer', async () => {
-        expect(fetchSpy).toHaveBeenCalledWith(URL);
-        expect(decodeAudioData).toHaveBeenCalledWith(arrayBuffer);
+    describe('creation', () => {
+        it('gets audio data and creates audio buffer', async () => {
+            expect(fetchSpy).toHaveBeenCalledWith(URL);
+            expect(decodeAudioData).toHaveBeenCalledWith(arrayBuffer);
+        });
     });
 
     describe('#play', () => {
