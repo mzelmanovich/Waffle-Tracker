@@ -41,11 +41,10 @@ for (let i = 0; i < inputs.length; i++) {
             }
             trackNumber = trackNumber.id;
             console.log(trackNumber, note, cell);
-
-            // passing note here fails and I want to find a way to use the variable trackNumber as a way to decide which track.addNote to use which probably means I'm doing something wrong
-            if (trackNumber = "track1") {
-                track1.addNote(note, cell);
-            }
+            
+            //need to make this not use eval 
+            note = eval(note);
+            eval(trackNumber).addNote(note, cell);
         }
       });
 }
