@@ -45,3 +45,13 @@ services:
         - /usr/app/waffletracker/node_modules
     working_dir:  /usr/app/waffletracker
     command: [ "npm", "run", "lint"]
+  lint-fix:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: lint-fix 
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    command: [ "npm", "run", "lint:fix"]
