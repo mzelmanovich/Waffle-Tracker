@@ -6,9 +6,9 @@
   "scripts": {
     "docker:build": "docker-compose --verbose -f docker-compose.yml build ",
     "docker:dev": "docker-compose -f docker-compose.yml up web-dev-server",
-    "docker:lint": "docker-compose -f docker-compose.yml up lint",
+    "docker:lint": "docker-compose -f docker-compose.yml up --exit-code-from lint lint" ,
     "docker:lint:fix": "docker-compose -f docker-compose.yml up lint-fix",
-    "docker:unit-tests": "docker-compose -f docker-compose.yml up unit-tests",
+    "docker:unit-tests": "docker-compose -f docker-compose.yml up --exit-code-from unit-test unit-tests",
     "docker:unit-tests:debug": "docker-compose -f docker-compose.yml up unit-tests-debug",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
