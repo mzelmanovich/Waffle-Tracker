@@ -39,7 +39,9 @@ for (let i = 0; i < inputs.length; i++) {
             while(trackNumber.className != 'trackColumn'){
                 trackNumber = trackNumber.parentElement;
             }
-            track0.addNote(note, cell);
+            trackNumber = trackNumber.id;
+            console.log(trackNumber, note, cell);
+            track0.addNote(k, cell);
         }
       });
 }
