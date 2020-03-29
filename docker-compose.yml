@@ -35,3 +35,13 @@ services:
     ports:
         - "81:9229"
     command: [ "npm", "run", "test:debug"]
+  lint:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: lint 
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    command: [ "npm", "run", "lint"]

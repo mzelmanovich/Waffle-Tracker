@@ -4,4 +4,6 @@ services:
     - docker
 install:
     - "npm run docker:build"
-script: "npm run docker:unit-tests"
+script: 
+    - "npm run docker:lint"
+    - "npm run docker:unit-tests"

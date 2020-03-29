@@ -1,13 +1,13 @@
-import { Song } from "./song";
-import { WebNote } from "./notes";
-import { Track } from "./track";
-import { Pattern } from "./pattern";
+import { Song } from './song';
+import { WebNote } from './notes';
+import { Track } from './track';
+import { Pattern } from './pattern';
 
 const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
 const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
 const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
-// new prototype example 1.0 
+// new prototype example 1.0
 const song = new Song(80);
 const pattern = new Pattern();
 pattern.reps = 2;
@@ -24,13 +24,13 @@ const stopButton = document.getElementById('stop');
 const trackColumn1 = document.getElementsByClassName('trackColumn')[0];
 const columnList = trackColumn1.getElementsByClassName('rowNote');
 
-//assigning variables for each track row 
+//assigning variables for each track row
 const trackRows = [];
-for (var i = 0; i < columnList.length; i++) {  
+for (let i = 0; i < columnList.length; i++) {
     trackRows.push(columnList[i]);
     //adding event listeners to each cell
-    let element: HTMLElement = trackRows[i] as HTMLElement;
-    element.onclick = () => element.style.color = "black";
+    const element: HTMLElement = trackRows[i] as HTMLElement;
+    element.onclick = () => (element.style.color = 'black');
     element.onclick = () => track01.addNote(hiHat, i);
 }
 

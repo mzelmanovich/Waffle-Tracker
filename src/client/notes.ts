@@ -1,10 +1,10 @@
-import {Song} from './song';
+import { Song } from './song';
 
 /**
  * Represent a note created from a audio file url.
  */
-export class WebNote  {
-     private audioBuffer_: Promise<AudioBuffer>;
+export class WebNote {
+    private audioBuffer_: Promise<AudioBuffer>;
 
     constructor(private url: string, private song: Song) {
         this.fetchData();
@@ -28,11 +28,11 @@ export class WebNote  {
 
     /**
      * Plays note in given song.
-     * 
+     *
      * @param timestamp  When to play note in seconds within song.
      */
-    async play (timestamp: number) {
-        const source =  this.song.audioContext.createBufferSource();
+    async play(timestamp: number) {
+        const source = this.song.audioContext.createBufferSource();
         source.buffer = await this.audioBuffer;
         source.connect(this.song.audioContext.destination);
         source.start(timestamp);
