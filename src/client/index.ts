@@ -11,7 +11,13 @@ const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 const song = new Song(80);
     const pattern = new Pattern();
 pattern.reps = 2;
-const track01 = new Track(song);
+const track0 = new Track(song);
+const track1 = new Track(song);
+const track2 = new Track(song);
+const track3 = new Track(song);
+const k = new WebNote(KICK_URL, song);
+const h = new WebNote(HI_HAT_URL, song);
+const s = new WebNote(SNARE_URL, song);
 song.addPattern(pattern);
 pattern.addTrack(track01);
 
@@ -34,7 +40,9 @@ for (let i = 0; i < columnList.length; i++) {
     element.onclick = () => track01.addNote(hiHat, i);
 }
 
+saveButton.onclick = () => evalTracks();
 playButton.onclick = () => song.play();
+//stopButton.onclick = () => song.stop();
 
 /*
 // example 0.2

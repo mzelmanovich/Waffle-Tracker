@@ -6,84 +6,424 @@
       </head>
       <body>
             <div class="buttonContainer">
-                  <button type="button">
+                  <button id="play" type="button">
                         <img src="ico-play.svg">
                         Play
                   </button>
-                  <button type="button">
+                  <button id="stop" type="button">
                         <img src="ico-stop.svg">
                         Stop
                   </button>
+                  <button id="save" type="button">
+                        <img src="ico-stop.svg">
+                        Save
+                  </button>
             </div>
 
-            <div class="trackColumn">
-                  <div class="trackHeader">Track 1</div>
-                  <div class="trackRow">
-                        <div class="rowIndex">00</div>
-                        <div class="rowNote">---</div>
+            <p>use k,h,s as inputs</p>
+
+            <div class="trackContainer">
+                  <div class="trackColumn">
+                        <div class="trackHeader">Track 1</div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="0">00</label>
+                                    <input type="text" class="0" name="0">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="1">01</label>
+                                    <input type="text" class="1" name="1">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="2">02</label>
+                                    <input type="text" class="2" name="2">
+                              </div>
+                        </div>
+                        <div class="trackRow currentRow">
+                              <div class="rowNote">
+                                    <label for="3">03</label>
+                                    <input type="text" class="3" name="3">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="4">04</label>
+                                    <input type="text" class="4" name="4">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="5">05</label>
+                                    <input type="text" class="5" name="5">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="6">06</label>
+                                    <input type="text" class="6" name="6">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="7">07</label>
+                                    <input type="text" class="7" name="7">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="8">08</label>
+                                    <input type="text" class="8" name="8">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="9">09</label>
+                                    <input type="text" class="9" name="9">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="10">10</label>
+                                    <input type="text" class="10" name="10">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="11">11</label>
+                                    <input type="text" class="11" name="11">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="12">12</label>
+                                    <input type="text" class="12" name="12">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="13">13</label>
+                                    <input type="text" class="13" name="13">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="14">14</label>
+                                    <input type="text" class="14" name="14">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="15">15</label>
+                                    <input type="text" class="15" name="15">
+                              </div>
+                        </div>
                   </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">01</div>
-                        <div class="rowNote">---</div>
+                  <!-- Track 2 -->
+                  <div class="trackColumn">
+                        <div class="trackHeader">Track 2</div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="0">00</label>
+                                    <input type="text" class="0" name="0">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="1">01</label>
+                                    <input type="text" class="1" name="1">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="2">02</label>
+                                    <input type="text" class="2" name="2">
+                              </div>
+                        </div>
+                        <div class="trackRow currentRow">
+                              <div class="rowNote">
+                                    <label for="3">03</label>
+                                    <input type="text" class="3" name="3">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="4">04</label>
+                                    <input type="text" class="4" name="4">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="5">05</label>
+                                    <input type="text" class="5" name="5">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="6">06</label>
+                                    <input type="text" class="6" name="6">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="7">07</label>
+                                    <input type="text" class="7" name="7">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="8">08</label>
+                                    <input type="text" class="8" name="8">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="9">09</label>
+                                    <input type="text" class="9" name="9">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="10">10</label>
+                                    <input type="text" class="10" name="10">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="11">11</label>
+                                    <input type="text" class="11" name="11">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="12">12</label>
+                                    <input type="text" class="12" name="12">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="13">13</label>
+                                    <input type="text" class="13" name="13">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="14">14</label>
+                                    <input type="text" class="14" name="14">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="15">15</label>
+                                    <input type="text" class="15" name="15">
+                              </div>
+                        </div>
                   </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">02</div>
-                        <div class="rowNote">---</div>
+                  <!-- Track 3 -->
+                  <div class="trackColumn">
+                        <div class="trackHeader">Track 3</div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="0">00</label>
+                                    <input type="text" class="0" name="0">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="1">01</label>
+                                    <input type="text" class="1" name="1">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="2">02</label>
+                                    <input type="text" class="2" name="2">
+                              </div>
+                        </div>
+                        <div class="trackRow currentRow">
+                              <div class="rowNote">
+                                    <label for="3">03</label>
+                                    <input type="text" class="3" name="3">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="4">04</label>
+                                    <input type="text" class="4" name="4">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="5">05</label>
+                                    <input type="text" class="5" name="5">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="6">06</label>
+                                    <input type="text" class="6" name="6">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="7">07</label>
+                                    <input type="text" class="7" name="7">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="8">08</label>
+                                    <input type="text" class="8" name="8">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="9">09</label>
+                                    <input type="text" class="9" name="9">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="10">10</label>
+                                    <input type="text" class="10" name="10">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="11">11</label>
+                                    <input type="text" class="11" name="11">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="12">12</label>
+                                    <input type="text" class="12" name="12">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="13">13</label>
+                                    <input type="text" class="13" name="13">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="14">14</label>
+                                    <input type="text" class="14" name="14">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="15">15</label>
+                                    <input type="text" class="15" name="15">
+                              </div>
+                        </div>
                   </div>
-                  <div class="trackRow currentRow">
-                        <div class="rowIndex">03</div>
-                        <div class="rowNote">---</div>
+                  <!-- Track 4 -->
+                  <div class="trackColumn">
+                        <div class="trackHeader">Track 4</div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="0">00</label>
+                                    <input type="text" class="0" name="0">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="1">01</label>
+                                    <input type="text" class="1" name="1">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="2">02</label>
+                                    <input type="text" class="2" name="2">
+                              </div>
+                        </div>
+                        <div class="trackRow currentRow">
+                              <div class="rowNote">
+                                    <label for="3">03</label>
+                                    <input type="text" class="3" name="3">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="4">04</label>
+                                    <input type="text" class="4" name="4">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="5">05</label>
+                                    <input type="text" class="5" name="5">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="6">06</label>
+                                    <input type="text" class="6" name="6">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="7">07</label>
+                                    <input type="text" class="7" name="7">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="8">08</label>
+                                    <input type="text" class="8" name="8">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="9">09</label>
+                                    <input type="text" class="9" name="9">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="10">10</label>
+                                    <input type="text" class="10" name="10">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="11">11</label>
+                                    <input type="text" class="11" name="11">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="12">12</label>
+                                    <input type="text" class="12" name="12">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="13">13</label>
+                                    <input type="text" class="13" name="13">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="14">14</label>
+                                    <input type="text" class="14" name="14">
+                              </div>
+                        </div>
+                        <div class="trackRow">
+                              <div class="rowNote">
+                                    <label for="15">15</label>
+                                    <input type="text" class="15" name="15">
+                              </div>
+                        </div>
                   </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">04</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">05</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">06</div>
-                        <div class="rowNote highlightNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">07</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">08</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">09</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">10</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">11</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">12</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">13</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">14</div>
-                        <div class="rowNote">---</div>
-                  </div>
-                  <div class="trackRow">
-                        <div class="rowIndex">15</div>
-                        <div class="rowNote">---</div>
-                  </div>
-            </div>
+            </div>      
       </body>
 
-
+      <script src="/build/public/bundle.js" type="text/javascript"></script>
 </html>

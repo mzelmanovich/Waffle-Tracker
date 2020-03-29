@@ -29,6 +29,10 @@ button:hover{
       flex-direction: row;
 }
 
+.trackContainer{
+      margin: auto;
+}
+
 .trackHeader{
       padding: 10px;
       font-weight: bold;
@@ -41,7 +45,9 @@ button:hover{
       flex-direction: column;
       background-color: #f0f0f0;
       padding-bottom: 4px;
+      margin-right: 4px;
       width: 100px;
+      float: left;
 }
 
 .trackRow{
@@ -61,9 +67,17 @@ button:hover{
 
 .rowNote{
       padding-left: 4px;
-      color: blue;s
+      color: blue;
 }
 
 .highlightNote{
       background-color: #ffffff;
+}
+
+input { 
+      width: 15px;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 2px solid black;
 }
