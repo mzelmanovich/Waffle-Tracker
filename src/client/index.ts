@@ -9,7 +9,7 @@ import { Pattern } from './pattern';
 
 // new prototype example 1.0
 const song = new Song(80);
-const pattern = new Pattern();
+    const pattern = new Pattern();
 pattern.reps = 2;
 // const track0 = new Track(song);
 // const track1 = new Track(song);
