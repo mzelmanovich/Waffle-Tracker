@@ -6,7 +6,7 @@ RUN mkdir -p /usr/app/waffletracker
 WORKDIR /usr/app/waffletracker/
 
 # run install
-RUN npm install -g typescript
+RUN npm install -g typescript ts-node nyc
 RUN npm install -g webpack-dev-server webpack webpack-cli
 
 # copy package.json files and install

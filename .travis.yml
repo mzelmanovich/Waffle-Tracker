@@ -1,0 +1,8 @@
+language: node_js
+
+services:
+    - docker
+install:
+    - "npm run docker:build"
+script: 
+    - "npm run docker:unit-tests"

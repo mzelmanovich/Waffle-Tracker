@@ -1,128 +1,46 @@
-import { Song } from "./song";
-import { WebNote } from "./notes";
-import { Track } from "./track";
-import { Pattern } from "./pattern";
+import { Song } from './song';
+// import { WebNote } from './notes';
+// import { Track } from './track';
+import { Pattern } from './pattern';
 
-const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
-const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
-const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
+// const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
+// const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
+// const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
-// new prototype example 1.0 
-const song = new Song(120);
+// new prototype example 1.0
+const song = new Song(80);
 const pattern = new Pattern();
 pattern.reps = 2;
-const track0 = new Track(song);
-const track1 = new Track(song);
-const track2 = new Track(song);
-const track3 = new Track(song);
-const k = new WebNote(KICK_URL, song);
-const h = new WebNote(HI_HAT_URL, song);
-const s = new WebNote(SNARE_URL, song);
+// const track0 = new Track(song);
+// const track1 = new Track(song);
+// const track2 = new Track(song);
+// const track3 = new Track(song);
+// const k = new WebNote(KICK_URL, song);
+// const h = new WebNote(HI_HAT_URL, song);
+// const s = new WebNote(SNARE_URL, song);
 song.addPattern(pattern);
-pattern.addTrack(track0);
-pattern.addTrack(track1);
-pattern.addTrack(track2);
-pattern.addTrack(track3);
+// pattern.addTrack(track01);
+
+// const kick = new WebNote(KICK_URL, song);
+// const hiHat = new WebNote(HI_HAT_URL, song);
+// const snare = new WebNote(SNARE_URL, song);
 
 const playButton = document.getElementById('play');
-const stopButton = document.getElementById('stop');
-const saveButton = document.getElementById('save');
+// const stopButton = document.getElementById('stop');
+const trackColumn1 = document.getElementsByClassName('trackColumn')[0];
+const columnList = trackColumn1.getElementsByClassName('rowNote');
 
-function evalTracks() {
-    let trackList = document.getElementsByClassName('trackColumn');
-    //track 1
-    let columnList1 = trackList[0].getElementsByClassName('rowNote');
-    for (var i = 0; i < columnList1.length; i++) {  
-        let el = trackList[0].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        console.log(inputValue);
-        if(inputValue == "k"){
-            track0.addNote(k, i);
-        }
-        if(inputValue == "h"){
-            track0.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track0.addNote(s, i);
-        }   
-    }   
-    //track 2
-    let columnList2 = (trackList[1].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList2.length; i++) {  
-        let el = trackList[1].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        //console.log(inputValue);
-        if(inputValue == "k"){
-            track1.addNote(k, i);
-        }
-        if(inputValue == "h"){
-            track1.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track1.addNote(s, i);
-        }   
-    }   
-    //track 3
-    let columnList3 = (trackList[2].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList3.length; i++) {  
-        let el = trackList[2].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-            //console.log(inputValue);
-            if(inputValue == "k"){
-                track2.addNote(k, i);
-            }
-            if(inputValue == "h"){
-                track2.addNote(h, i);
-            }
-            if(inputValue == "s"){
-                track2.addNote(s, i);
-            }
-    }   
-    //track 4
-    let columnList4 = (trackList[3].getElementsByClassName('rowNote'));
-    for (var i = 0; i < columnList4.length; i++) {  
-        let el = trackList[3].getElementsByClassName(i.toString())[0];
-        let inputValue = (<HTMLInputElement>el).value;
-        //console.log(inputValue);
-        if(inputValue == "k"){
-            track3.addNote(k, i);
-        }
-        if(inputValue == "h"){
-            track3.addNote(h, i);
-        }
-        if(inputValue == "s"){
-            track3.addNote(s, i);
-        }
-    }    
+//assigning variables for each track row
+const trackRows = [];
+for (let i = 0; i < columnList.length; i++) {
+    trackRows.push(columnList[i]);
+    //adding event listeners to each cell
+    const element: HTMLElement = trackRows[i] as HTMLElement;
+    element.onclick = () => (element.style.color = 'black');
+    // element.onclick = () => track01.addNote(hiHat, i);
 }
 
-/*
-//trying to make the above code more DRY
-function evalTracks() {
-    let trackList = document.getElementsByClassName('trackColumn');
-    let trackArray: any[] = [];
-    let trackColumn = [];
-    for (var n = 0; n < trackList.length; n++){
-        trackArray.push("track" + n.toString());
-        trackColumn.push(trackList[n].getElementsByClassName('rowNote'));
-        for (var i = 0; i < trackColumn.length; i++) {  
-            let inputValue = (<HTMLInputElement>document.getElementById(i.toString())).value;
-            //console.log(inputValue);
-            if(inputValue == "k"){
-                trackArray[n].addNote(k, i);
-            }
-            if(inputValue == "h"){
-                trackArray[n].addNote(h, i);
-            }
-            if(inputValue == "s"){
-                trackArray[n].addNote(s, i);
-            }
-        }
-    }   
-}
-*/
-
-saveButton.onclick = () => evalTracks();
+// saveButton.onclick = () => evalTracks();
 playButton.onclick = () => song.play();
 //stopButton.onclick = () => song.stop();
 

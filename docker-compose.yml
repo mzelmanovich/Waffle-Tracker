@@ -1,0 +1,57 @@
+version: '3'
+services:
+  web-dev-server:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: web-dev
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    ports:
+        - "80:80"
+  unit-tests:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: unit-test
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    ports:
+        - "81:9229"
+    command: [ "npm", "run", "test"]
+  unit-tests-debug:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: unit-test-debug
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    ports:
+        - "81:9229"
+    command: [ "npm", "run", "test:debug"]
+  lint:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: lint 
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    command: [ "npm", "run", "lint"]
+  lint-fix:
+    build:
+      context: ./
+      dockerfile: ./DockerFile-Dev
+    container_name: lint-fix 
+    volumes: 
+        - .:/usr/app/waffletracker/:rw
+        - /usr/app/waffletracker/node_modules
+    working_dir:  /usr/app/waffletracker
+    command: [ "npm", "run", "lint:fix"]

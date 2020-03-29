@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require('path');
 
 const PUBLIC_FILE_PATH = path.join(__dirname, 'build', 'public');
@@ -13,8 +14,8 @@ module.exports = {
         watchOptions: {
             aggregateTimeout: 500,
             poll: 1000,
-            ignored: ['src/server/**', 'node_modules/**',]
-        }
+            ignored: ['src/server/**', 'node_modules/**', 'src/**/*test.ts'],
+        },
     },
     output: {
         filename: 'bundle.js',
@@ -25,11 +26,11 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: [/node_modules/, /.*\.test.ts/],
             },
-        ]
+        ],
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"]
+        extensions: ['.tsx', '.ts', '.js'],
     },
 };
