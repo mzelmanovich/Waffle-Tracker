@@ -9,6 +9,7 @@ import { Pattern } from './pattern';
 
 // new prototype example 1.0
 const song = new Song(80);
+const test123 = 123;
 const test = 123;
     const pattern = new Pattern();
 pattern.reps = 2;
