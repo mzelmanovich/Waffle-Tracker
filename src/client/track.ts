@@ -66,10 +66,14 @@ export class Track {
      */
     async play(timestamp: number) {
         const noteTime = this.calculateNoteTime();
+        let currentlyPlayNote: WebNote | null = null;
         for (let i = 0; i < this.length; i++) {
             const note = this.notes[i];
             if (note) {
-                await note.play(timestamp + i * noteTime);
+                const nextNotePlayTime = timestamp + i * noteTime;
+                currentlyPlayNote?.stop(nextNotePlayTime);
+                await note.play(nextNotePlayTime);
+                currentlyPlayNote = note;
             }
         }
         return timestamp + this.nextNoteTimestampOffset;
