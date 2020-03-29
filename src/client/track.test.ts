@@ -117,7 +117,7 @@ describe('Track', function () {
 
             const val = await trk.play(0);
 
-            expect(val).toBe(5);
+            expect(val).toBe(15);
         });
     });
 });
