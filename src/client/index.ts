@@ -3,8 +3,8 @@ import { WebNote } from './notes';
 import { Track } from './track';
 import { Pattern } from './pattern';
 
-const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
-const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
+// const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
+// const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
 const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
 // new prototype example 1.0
@@ -15,12 +15,12 @@ const track01 = new Track(song);
 song.addPattern(pattern);
 pattern.addTrack(track01);
 
-const kick = new WebNote(KICK_URL, song);
+// const kick = new WebNote(KICK_URL, song);
 const hiHat = new WebNote(HI_HAT_URL, song);
-const snare = new WebNote(SNARE_URL, song);
+// const snare = new WebNote(SNARE_URL, song);
 
 const playButton = document.getElementById('play');
-const stopButton = document.getElementById('stop');
+// const stopButton = document.getElementById('stop');
 const trackColumn1 = document.getElementsByClassName('trackColumn')[0];
 const columnList = trackColumn1.getElementsByClassName('rowNote');
 
