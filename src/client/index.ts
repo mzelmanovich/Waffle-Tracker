@@ -9,7 +9,7 @@ const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
 // new prototype example 1.0
 const song = new Song(80);
-const pattern = new Pattern();
+    const pattern = new Pattern();
 pattern.reps = 2;
 const track01 = new Track(song);
 song.addPattern(pattern);
