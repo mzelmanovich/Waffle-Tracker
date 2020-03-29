@@ -1,28 +1,28 @@
 import { Song } from './song';
-import { WebNote } from './notes';
-import { Track } from './track';
+// import { WebNote } from './notes';
+// import { Track } from './track';
 import { Pattern } from './pattern';
 
 // const KICK_URL = 'https://webaudioapi.com/samples/rhythm/kick.wav';
 // const SNARE_URL = 'https://webaudioapi.com/samples/rhythm/snare.wav';
-const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
+// const HI_HAT_URL = 'https://webaudioapi.com/samples/rhythm/hihat.wav';
 
 // new prototype example 1.0
 const song = new Song(80);
-    const pattern = new Pattern();
+const pattern = new Pattern();
 pattern.reps = 2;
-const track0 = new Track(song);
-const track1 = new Track(song);
-const track2 = new Track(song);
-const track3 = new Track(song);
-const k = new WebNote(KICK_URL, song);
-const h = new WebNote(HI_HAT_URL, song);
-const s = new WebNote(SNARE_URL, song);
+// const track0 = new Track(song);
+// const track1 = new Track(song);
+// const track2 = new Track(song);
+// const track3 = new Track(song);
+// const k = new WebNote(KICK_URL, song);
+// const h = new WebNote(HI_HAT_URL, song);
+// const s = new WebNote(SNARE_URL, song);
 song.addPattern(pattern);
-pattern.addTrack(track01);
+// pattern.addTrack(track01);
 
 // const kick = new WebNote(KICK_URL, song);
-const hiHat = new WebNote(HI_HAT_URL, song);
+// const hiHat = new WebNote(HI_HAT_URL, song);
 // const snare = new WebNote(SNARE_URL, song);
 
 const playButton = document.getElementById('play');
@@ -37,10 +37,10 @@ for (let i = 0; i < columnList.length; i++) {
     //adding event listeners to each cell
     const element: HTMLElement = trackRows[i] as HTMLElement;
     element.onclick = () => (element.style.color = 'black');
-    element.onclick = () => track01.addNote(hiHat, i);
+    // element.onclick = () => track01.addNote(hiHat, i);
 }
 
-saveButton.onclick = () => evalTracks();
+// saveButton.onclick = () => evalTracks();
 playButton.onclick = () => song.play();
 //stopButton.onclick = () => song.stop();
 
