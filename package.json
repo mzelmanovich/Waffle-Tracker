@@ -6,7 +6,7 @@
   "scripts": {
     "docker:build": "docker-compose --verbose -f docker-compose.yml build ",
     "docker:dev": "docker-compose -f docker-compose.yml up web-dev-server",
-    "docker:lint": "docker-compose -f docker-compose.yml up --exit-code-from lint lint" ,
+    "docker:lint": "docker-compose -f docker-compose.yml up --exit-code-from lint lint",
     "docker:lint:fix": "docker-compose -f docker-compose.yml up lint-fix",
     "docker:unit-tests": "docker-compose -f docker-compose.yml up --exit-code-from unit-tests unit-tests",
     "docker:unit-tests:debug": "docker-compose -f docker-compose.yml up unit-tests-debug",
@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "jasmine-console-reporter": "^3.1.0",
-    "jasmine-ts-console-reporter": "^3.1.1"
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "lit-html": "^1.2.1"
   }
 }
