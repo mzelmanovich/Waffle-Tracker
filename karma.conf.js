@@ -1,29 +1,35 @@
 /* eslint-disable */
 const isDocker = require('is-docker')();
+const webpackConfig = require('./webpack.config');
 
 const thresholdConfigsGlobal ={ statements: 75,functions: 75 };
 const thresholdConfigsFile =  { functions: 80};
 
 module.exports = function(config) {
   config.set({
-    frameworks: ['jasmine', 'karma-typescript'],
+    frameworks: ['jasmine'],
     files: [
       {pattern: 'src/**/!(index).ts'},
       {pattern: 'src/**/*.ts'},
       {pattern: 'src/**/*.scss',},
     ],
     preprocessors: {
-            "**/!(index).ts": "karma-typescript",
+            "**/!(index).ts": ['webpack', 'sourcemap'],
             'src/**/*.scss': ['scss']
 
     },
     reporters: [
-      'karma-typescript',
       'spec',
-      'istanbul-threshold'
     ],
-    port: 9876,  // karma web server port
+
+    port: 9876,
     colors: true,
+    webpack: {
+      module: webpackConfig.module,
+      resolve: webpackConfig.resolve,
+      mode: webpackConfig.mode,
+      devtool: 'inline-source-map',
+    },
     logLevel: config.LOG_ERROR,
     customLaunchers: {
         ChromeCustom: {
@@ -34,35 +40,10 @@ module.exports = function(config) {
         }
     },
     browserNoActivityTimeout: 60000,
-    karmaTypescriptConfig: {
-        bundlerOptions: {
-            transforms: [require("karma-typescript-es6-transform")()]
-        },
-        tsconfig: "./src/client/tsconfig.json",
-        reports: {
-          "html": "coverage",
-          "json": {"directory": "coverage", "subdirectory":"json", "filename":"report.json"},
-        },
-        coverageOptions: {
-          threshold: {
-            global: thresholdConfigsGlobal,
-            files: thresholdConfigsFile
-          },
-        },
-    },
     captureTimeout: 30000,
     specReporter: {
       suppressErrorSummary: false,
       suppressFailed: false, 
     },
-    istanbulThresholdReporter: {
-      basePath: __dirname,
-      reporters: ['text'], 
-      src: 'coverage/json/report.json',
-      thresholds: {
-        global: thresholdConfigsGlobal,
-        each: thresholdConfigsFile
-      } 
-    }
   })
 }

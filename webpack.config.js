@@ -24,13 +24,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.ts?$/,
                 loader: 'ts-loader',
-                exclude: [/node_modules/, /.*\.test.ts/],
+                exclude: [/node_modules/,],
             },
         ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+      mode: 'development'
 };
