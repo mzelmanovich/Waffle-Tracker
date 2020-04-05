@@ -68,7 +68,6 @@ describe('Track', function () {
     });
 
     describe('#play', () => {
-
         it('calls play and stop with expected time', async () => {
             const note0 = createMockNote();
             const note1 = createMockNote();
