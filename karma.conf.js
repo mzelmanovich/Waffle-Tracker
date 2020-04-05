@@ -56,8 +56,8 @@ module.exports = function(config) {
       suppressFailed: false, 
     },
     istanbulThresholdReporter: {
-      reporters: ['text'], 
       basePath: __dirname,
+      reporters: ['text'], 
       src: 'coverage/json/report.json',
       thresholds: {
         global: thresholdConfigsGlobal,
