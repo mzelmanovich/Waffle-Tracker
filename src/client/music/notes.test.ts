@@ -9,6 +9,7 @@ const fetchSpy = jasmine.createSpy('fetch').and.resolveTo(
         arrayBuffer: Promise.resolve(arrayBuffer),
     }),
 );
+
 const oldFetch = window.fetch;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 window.fetch = fetchSpy;

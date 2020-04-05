@@ -3,6 +3,7 @@ import { Song } from './song';
 import { WebNote } from './notes';
 
 const createMockSong = (bpm = 60) => jasmine.createSpyObj('Song', {}, { bpm }) as Song;
+
 const createMockNote = () => jasmine.createSpyObj('WebNote', ['play', 'stop']) as WebNote;
 
 describe('Track', function () {
@@ -67,6 +68,7 @@ describe('Track', function () {
     });
 
     describe('#play', () => {
+
         it('calls play and stop with expected time', async () => {
             const note0 = createMockNote();
             const note1 = createMockNote();
