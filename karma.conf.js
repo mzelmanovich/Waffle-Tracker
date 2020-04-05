@@ -18,8 +18,8 @@ module.exports = function(config) {
 
     },
     reporters: [
-      'spec',
       'karma-typescript',
+      'spec',
       'istanbul-threshold'
     ],
     port: 9876,  // karma web server port

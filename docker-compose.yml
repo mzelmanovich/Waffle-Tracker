@@ -19,6 +19,7 @@ services:
     volumes: 
         - .:/usr/app/waffletracker/:rw
         - /usr/app/waffletracker/node_modules
+        - /usr/app/waffletracker/coverage
     working_dir:  /usr/app/waffletracker
     command: [ "npm", "run", "test:karma"]
   unit-tests-debug:
