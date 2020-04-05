@@ -2,13 +2,8 @@ import { Track } from './track';
 import { Song } from './song';
 import { WebNote } from './notes';
 
-const TSConsoleReporter = require('jasmine-console-reporter'); // eslint-disable-line @typescript-eslint/no-var-requires
+const createMockSong = (bpm = 60) => jasmine.createSpyObj('Song', {}, { bpm }) as Song;
 
-jasmine.getEnv().clearReporters(); // Clear default console reporter
-jasmine.getEnv().addReporter(new TSConsoleReporter());
-
-let bpm = 60;
-const createMockSong = () => jasmine.createSpyObj('Song', {}, { bpm }) as Song;
 const createMockNote = () => jasmine.createSpyObj('WebNote', ['play', 'stop']) as WebNote;
 
 describe('Track', function () {
@@ -16,7 +11,6 @@ describe('Track', function () {
     let song: Song;
 
     beforeEach(() => {
-        bpm = 60;
         song = createMockSong();
         trk = new Track(song);
     });
@@ -74,7 +68,7 @@ describe('Track', function () {
     });
 
     describe('#play', () => {
-        it('calls play and stop on with expected time', async () => {
+        it('calls play and stop with expected time', async () => {
             const note0 = createMockNote();
             const note1 = createMockNote();
             const note8 = createMockNote();
@@ -98,6 +92,32 @@ describe('Track', function () {
             expect(note8.play).toHaveBeenCalledTimes(1);
         });
 
+        it('calls play as expected with change in bpm', async () => {
+            song = createMockSong(30);
+            trk = new Track(song);
+            const note0 = createMockNote();
+            const note1 = createMockNote();
+            const note8 = createMockNote();
+            trk.addNote(note0, 0);
+            trk.addNote(note1, 1);
+            trk.addNote(note8, 8);
+
+            await trk.play(0);
+
+            expect(note0.play).toHaveBeenCalledWith(0);
+            expect(note0.play).toHaveBeenCalledTimes(1);
+            expect(note0.stop).toHaveBeenCalledWith(0.5);
+            expect(note0.stop).toHaveBeenCalledTimes(1);
+
+            expect(note1.play).toHaveBeenCalledWith(0.5);
+            expect(note1.play).toHaveBeenCalledTimes(1);
+            expect(note1.stop).toHaveBeenCalledWith(4);
+            expect(note1.stop).toHaveBeenCalledTimes(1);
+
+            expect(note8.play).toHaveBeenCalledWith(4);
+            expect(note8.play).toHaveBeenCalledTimes(1);
+        });
+
         it('returns expected next timestamp', async () => {
             const note0 = createMockNote();
             const note1 = createMockNote();
@@ -109,6 +129,21 @@ describe('Track', function () {
             const val = await trk.play(0);
 
             expect(val).toBe(4);
+        });
+
+        it('returns expected next timestamp with new bpm', async () => {
+            song = createMockSong(30);
+            trk = new Track(song);
+            const note0 = createMockNote();
+            const note1 = createMockNote();
+            const note8 = createMockNote();
+            trk.addNote(note0, 0);
+            trk.addNote(note1, 1);
+            trk.addNote(note8, 8);
+
+            const val = await trk.play(0);
+
+            expect(val).toBe(8);
         });
 
         it('returns expected next timestamp with new length', async () => {

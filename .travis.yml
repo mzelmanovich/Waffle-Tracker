@@ -1,7 +1,11 @@
 language: node_js
 
-services:
-    - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
+# services:
+#     - docker
 install:
     - "npm run docker:build"
 script: 

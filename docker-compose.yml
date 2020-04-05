@@ -20,9 +20,7 @@ services:
         - .:/usr/app/waffletracker/:rw
         - /usr/app/waffletracker/node_modules
     working_dir:  /usr/app/waffletracker
-    ports:
-        - "81:9229"
-    command: [ "npm", "run", "test"]
+    command: [ "npm", "run", "test:karma"]
   unit-tests-debug:
     build:
       context: ./
@@ -33,8 +31,8 @@ services:
         - /usr/app/waffletracker/node_modules
     working_dir:  /usr/app/waffletracker
     ports:
-        - "81:9229"
-    command: [ "npm", "run", "test:debug"]
+        - "80:9876"
+    command: [ "npm", "run", "test:karma:debug"]
   lint:
     build:
       context: ./
