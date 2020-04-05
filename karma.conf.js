@@ -1,9 +1,9 @@
 /* eslint-disable */
 const isDocker = require('is-docker')();
 const webpackConfig = require('./webpack.config');
+const path = require('path');
 
-const thresholdConfigsGlobal ={ statements: 75,functions: 75 };
-const thresholdConfigsFile =  { functions: 80};
+delete webpackConfig.entry
 
 module.exports = function(config) {
   config.set({
@@ -20,6 +20,7 @@ module.exports = function(config) {
     },
     reporters: [
       'spec',
+      'coverage-istanbul'
     ],
 
     port: 9876,
@@ -45,5 +46,18 @@ module.exports = function(config) {
       suppressErrorSummary: false,
       suppressFailed: false, 
     },
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'text-summary', 'lcovonly' ],
+      dir: path.join(__dirname, 'coverage'),
+      fixWebpackSourcePaths: true,
+      'report-config': {
+        html: { outdir: 'coverage' }
+      },
+      thresholds :{
+        emitWarning: false,
+        global: {statements: 75, functions: 75},
+        each: {functions: 80}
+      }
+    }
   })
 }

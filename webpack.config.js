@@ -28,6 +28,15 @@ module.exports = {
                 loader: 'ts-loader',
                 exclude: [/node_modules/,],
             },
+            {
+                test: /\.ts$/,
+                exclude: [/\.test.ts?$/],
+                enforce: 'post',
+                use: {
+                    loader: 'istanbul-instrumenter-loader',
+                    options: { esModules: true }
+                }
+            }
         ],
     },
     resolve: {
