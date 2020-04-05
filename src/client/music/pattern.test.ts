@@ -1,11 +1,6 @@
 import { Pattern } from './pattern';
 import { Track } from './track';
 
-const TSConsoleReporter = require('jasmine-console-reporter'); // eslint-disable-line @typescript-eslint/no-var-requires
-
-jasmine.getEnv().clearReporters(); // Clear default console reporter
-jasmine.getEnv().addReporter(new TSConsoleReporter());
-
 const createMockTrack = (playReturn = 1) =>
     jasmine.createSpyObj('Track', {
         play: Promise.resolve(playReturn),

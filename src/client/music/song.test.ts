@@ -1,11 +1,6 @@
 import { Song } from './song';
 import { Pattern } from './pattern';
 
-const TSConsoleReporter = require('jasmine-console-reporter'); // eslint-disable-line @typescript-eslint/no-var-requires
-
-jasmine.getEnv().clearReporters(); // Clear default console reporter
-jasmine.getEnv().addReporter(new TSConsoleReporter());
-
 const createMockAudioContext = (currentTime = 0) => jasmine.createSpyObj('AudioContext', {}, { currentTime });
 
 const createMockPattern = (playReturn = 1) =>

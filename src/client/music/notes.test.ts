@@ -1,11 +1,6 @@
 import { Song } from './song';
 import { WebNote } from './notes';
 
-const TSConsoleReporter = require('jasmine-console-reporter'); // eslint-disable-line @typescript-eslint/no-var-requires
-
-jasmine.getEnv().clearReporters(); // Clear default console reporter
-jasmine.getEnv().addReporter(new TSConsoleReporter());
-
 const arrayBuffer = new ArrayBuffer(1);
 
 //fetch is not defined globaly in jasmine so set it on global
@@ -14,8 +9,9 @@ const fetchSpy = jasmine.createSpy('fetch').and.resolveTo(
         arrayBuffer: Promise.resolve(arrayBuffer),
     }),
 );
+const oldFetch = window.fetch;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-(global as any).fetch = fetchSpy;
+window.fetch = fetchSpy;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let audioBufferSource: any;
@@ -42,6 +38,8 @@ describe('WebNote', function () {
         // wait for fetchData to finish
         await note.audioBuffer;
     });
+
+    afterAll(() => (window.fetch = oldFetch));
 
     afterEach(() => {
         decodeAudioData.calls.reset();
