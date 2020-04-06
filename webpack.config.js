@@ -30,7 +30,7 @@ module.exports = {
             },
             {
                 test: /\.ts$/,
-                exclude: [/\.test.ts?$/],
+                exclude: [/\.test.ts?$/, /test-utils/],
                 enforce: 'post',
                 use: {
                     loader: 'istanbul-instrumenter-loader',

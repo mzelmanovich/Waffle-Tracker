@@ -25,7 +25,7 @@ RUN npm install -g webpack-dev-server webpack webpack-cli
 
 # copy package.json files and install
 COPY package*.json /usr/app/waffletracker/
-RUN npm install
+RUN yarn install
 
 # copy working files
 COPY . /usr/app/waffletracker/
