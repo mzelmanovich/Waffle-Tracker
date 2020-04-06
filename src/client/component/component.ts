@@ -73,6 +73,7 @@ export abstract class Component extends Controller {
     static targetAttr(name: string) {
         return `data-target="${this.controllerName}.${name}"`;
     }
+
     /**
      * Helper fucntion to create templates
      *
